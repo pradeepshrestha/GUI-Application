@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GPL_application</name>
+    </assembly>
+    <members>
+        <member name="T:GPL_application.Circle">
+            <summary>
+            Circle class which extends Shapes class
+            </summary>
+        </member>
+        <member name="T:GPL_application.Shapes">
+            <summary>
+            Abstract class Shapes which is further extended by other shape classes
+            </summary>
+        </member>
+        <member name="T:GPL_application.Line">
+            <summary>
+            Line class which extends the shapes class
+            </summary>
+        </member>
+        <member name="T:GPL_application.Form_main">
+            <summary>
+            the main form_main class
+            </summary>
+        </member>
+        <member name="M:GPL_application.Form_main.#ctor">
+            <summary>
+            main Form_main() method
+            </summary>
+        </member>
+        <member name="F:GPL_application.Form_main.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GPL_application.Form_main.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GPL_application.Form_main.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GPL_application.Polygon">
+            <summary>
+            Polygon class which extends teh Shapes class
+            </summary>
+        </member>
+        <member name="M:GPL_application.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:GPL_application.Rectangle">
+            <summary>
+            Rectangle class which extends the Shapes class
+            </summary>
+        </member>
+        <member name="T:GPL_application.ShapesFactory">
+            <summary>
+            The main ShapesFactory factory class
+            </summary>
+        </member>
+        <member name="T:GPL_application.Triangle">
+            <summary>
+            Triangle class which extends the Shapes class
+            </summary>
+        </member>
+        <member name="T:GPL_application.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:GPL_application.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:GPL_application.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:GPL_application.Properties.Resources.bckwhite">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:GPL_application.Properties.Resources.best_watercolor_backgrounds">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:GPL_application.Properties.Resources.close_hi">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:GPL_application.Properties.Resources.free_electric_lightning_texture_background_59">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:GPL_application.Properties.Resources.logo_transparent">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:GPL_application.Properties.Resources.maximize_window_256">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:GPL_application.Properties.Resources.minimize">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+    </members>
+</doc>
