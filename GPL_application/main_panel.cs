@@ -136,8 +136,33 @@ namespace GPL_application
                 //setting pens value to false for creating one graphic on one click.
                 pens = false;
             }
-            
-            
+            if (radioButton_tri.Checked && pens == true)
+            {
+                Pen p = new Pen(button_pen_color.BackColor, float.Parse(textBox_thickness.Text));
+                int thick = int.Parse(textBox_thickness.Text);
+                Point[] points = { new Point(e.X, e.Y), new Point(e.X, e.Y-20-thick), new Point(e.X+20+thick, e.Y) };
+                //SolidBrush sb = new SolidBrush(button_pen_color.BackColor);
+                TextureBrush textb = new TextureBrush(pictureBox_texture.Image);
+                textb.WrapMode = System.Drawing.Drawing2D.WrapMode.Tile;
+                g.FillPolygon(textb, points);
+                //resetting the position of mouse pointer coords
+                initX = null;
+                initY = null;
+                pens = false;
+            }
+            if (radioButton_pol.Checked && pens == true)
+            {
+
+                Pen p = new Pen(button_pen_color.BackColor, float.Parse(textBox_thickness.Text));
+                int thick = int.Parse(textBox_thickness.Text);
+                //SolidBrush sb = new SolidBrush(button_pen_color.BackColor);
+                TextureBrush textb = new TextureBrush(pictureBox_texture.Image);
+                textb.WrapMode = System.Drawing.Drawing2D.WrapMode.Tile;
+                //Point[] points = { new Point(e.X, e.Y), new Point(e.X + 20 + thick, e.Y - 20 - thick), new Point(e.X + 60 + thick, e.Y - thick), new Point(e.X + 23 + thick, e.Y + 30 - thick), new Point(e.X + 2 + thick, e.Y + 30 - thick) };
+                Point[] points = { new Point(e.X, e.Y), new Point(e.X + 20 + thick, e.Y - 20 - thick), new Point(e.X + 40 + thick, e.Y+thick), new Point(e.X + 25 + thick, e.Y + 10 + thick), new Point(e.X + 10 + thick, e.Y + 10 + thick) };
+                g.FillPolygon(textb, points);
+
+            }
         }
 
         private void pictureBox_canvas_MouseUp(object sender, MouseEventArgs e)
@@ -294,7 +319,11 @@ namespace GPL_application
                     size4 = int.Parse(matchdrawtoline.Groups[6].Value);
                     try
                     {
-                       
+                        ShapesFactory shapesFactory = new ShapesFactory();
+                        Shapes c = shapesFactory.GetShapes("line");
+                        c.set(pcolor, size1, size2, size3, size4);
+                        c.draw(g);
+                        richTextBox_output.AppendText("Line drawn at " + size1 + "," + size2 + Environment.NewLine);
                     }
                     catch (Exception ex)
                     {
@@ -310,7 +339,11 @@ namespace GPL_application
                     size4 = int.Parse(matchdrawtorec.Groups[6].Value);
                     try
                     {
-                        
+                        ShapesFactory shapesFactory = new ShapesFactory();
+                        Shapes c = shapesFactory.GetShapes("rectangle");
+                        c.set(pcolor, size1, size2, size3, size4);
+                        c.draw(g);
+                        richTextBox_output.AppendText("Rectangle drawn at " + size1 + "," + size2 + Environment.NewLine);
                     }
                     catch (Exception ex)
                     {
@@ -325,7 +358,11 @@ namespace GPL_application
                     size3 = int.Parse(matchdrawtocir.Groups[4].Value);
                     try
                     {
-                        
+                        ShapesFactory shapesFactory = new ShapesFactory();
+                        Shapes c = shapesFactory.GetShapes("circle");
+                        c.set(pcolor, size1, size2, size3 * 2, size3 * 2);
+                        c.draw(g);
+                        richTextBox_output.AppendText("Circle drawn at " + size1 + "," + size2 + Environment.NewLine);
                     }
                     catch (Exception ex)
                     {
@@ -360,7 +397,11 @@ namespace GPL_application
 
                     try
                     {
-                        
+                        ShapesFactory shapesFactory = new ShapesFactory();
+                        Shapes c = shapesFactory.GetShapes("triangle");
+                        c.set(pcolor, xi1, yi1, xi2, yi2, xii1, yii1, xii2, yii2, xiii1, yiii1, xiii2, yiii2);
+                        c.draw(g);
+                        richTextBox_output.AppendText("Triangle drawn at " + size1 + "," + size2 + Environment.NewLine);
                     }
                     catch (Exception ex)
                     {
@@ -385,7 +426,13 @@ namespace GPL_application
 
                     try
                     {
-                        
+                        ShapesFactory shapesFactory = new ShapesFactory();
+                        Shapes c = shapesFactory.GetShapes("polygon");
+                        //Point[] points = { new Point(e.X, e.Y), new Point(e.X + 20 + thick, e.Y + 20 + thick), new Point(e.X + 60 + thick, e.Y + thick), new Point(e.X + 23 + thick, e.Y - 30 + thick), new Point(e.X + 2 + thick, e.Y - 30 + thick) };
+                        //g.FillPolygon(sb, points);
+                        c.set(pcolor, size1, size2, size3, size4, size5, size6, size7, size8, size9, size10, size11, size12);
+                        c.draw(g);
+                        richTextBox_output.AppendText("Polygon drawn at " + size1 + "," + size2 + Environment.NewLine);
                     }
                     catch (Exception ex)
                     {
@@ -401,7 +448,11 @@ namespace GPL_application
                     size4 = int.Parse(matchline.Groups[3].Value);
                     try
                     {
-                        
+                        ShapesFactory shapesFactory = new ShapesFactory();
+                        Shapes c = shapesFactory.GetShapes("line");
+                        c.set(pcolor, size1, size2, size3, size4);
+                        c.draw(g);
+                        richTextBox_output.AppendText("Line drawn at " + size1 + "," + size2 + Environment.NewLine);
                     }
                     catch (Exception ex)
                     {
@@ -417,7 +468,11 @@ namespace GPL_application
                     size4 = int.Parse(matchrec.Groups[3].Value);
                     try
                     {
-                        
+                        ShapesFactory shapesFactory = new ShapesFactory();
+                        Shapes c = shapesFactory.GetShapes("rectangle");
+                        c.set(pcolor, size1, size2, size3, size4);
+                        c.draw(g);
+                        richTextBox_output.AppendText("Rectangle drawn at " + size1 + "," + size2 + Environment.NewLine);
                     }
                     catch (Exception ex)
                     {
@@ -432,7 +487,11 @@ namespace GPL_application
                     size3 = int.Parse(matchcir.Groups[1].Value);
                     try
                     {
-                        
+                        ShapesFactory shapesFactory = new ShapesFactory();
+                        Shapes c = shapesFactory.GetShapes("circle");
+                        c.set(pcolor, size1, size2, size3 * 2, size3 * 2);
+                        c.draw(g);
+                        richTextBox_output.AppendText("Circle drawn at " + size1 + "," + size2 + Environment.NewLine);
                     }
                     catch (Exception ex)
                     {
@@ -467,7 +526,11 @@ namespace GPL_application
 
                     try
                     {
-                        
+                        ShapesFactory shapesFactory = new ShapesFactory();
+                        Shapes c = shapesFactory.GetShapes("triangle");
+                        c.set(pcolor, xi1, yi1, xi2, yi2, xii1, yii1, xii2, yii2, xiii1, yiii1, xiii2, yiii2);
+                        c.draw(g);
+                        richTextBox_output.AppendText("Triangle drawn at " + size1 + "," + size2 + Environment.NewLine);
                     }
                     catch (Exception ex)
                     {
@@ -492,7 +555,10 @@ namespace GPL_application
 
                     try
                     {
-                       
+                        ShapesFactory shapesFactory = new ShapesFactory();
+                        Shapes c = shapesFactory.GetShapes("polygon");
+                        //c.set()
+                        richTextBox_output.AppendText("Polygon drawn at " + size1 + "," + size2 + Environment.NewLine);
                     }
                     catch (Exception ex)
                     {
@@ -531,12 +597,16 @@ namespace GPL_application
                         repeatAdd = int.Parse(matchRepCircle.Groups[1].Value);
 
 
-                        
+                        ShapesFactory shapesFactory = new ShapesFactory();
+                        Shapes c = shapesFactory.GetShapes("circle");
 
                         for (int i = 0; i < repeatno; i++)
                         {
 
-                            
+                            c.set(pcolor, size1, size2, size3 * 2, size3 * 2);
+                            c.draw(g);
+                            richTextBox_output.AppendText("Circle drawn at " + size1 + "," + size2 + Environment.NewLine);
+                            size3 = size3 + repeatAdd;
 
                         }
                     }
